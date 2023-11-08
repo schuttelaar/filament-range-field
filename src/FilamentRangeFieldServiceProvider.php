@@ -1,6 +1,6 @@
 <?php
 
-namespace Yepsua\Filament;
+namespace Schuttelaar\Filament;
 
 use Filament\Facades\Filament;
 use Spatie\LaravelPackageTools\Package;
