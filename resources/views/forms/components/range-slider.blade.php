@@ -1,13 +1,7 @@
-<x-forms::field-wrapper
-    :id="$getId()"
-    :label="$getLabel()"
-    :label-sr-only="$isLabelHidden()"
-    :helper-text="$getHelperText()"
-    :hint="$getHint()"
-    :hint-icon="$getHintIcon()"
-    :required="$isRequired()"
-    :state-path="$getStatePath()"
->
+<x-dynamic-component
+    :component="$getFieldWrapperView()"
+    :field="$field">
+
     <div x-data="{
         state: $wire.{{ $applyStateBindingModifiers('entangle(\'' . $getStatePath() . '\')') }}
     }">
@@ -26,7 +20,7 @@
         />
 
         @if (($steps = $getSteps()) && $getDisplaySteps() === true)
-        <ul class="flex justify-between w-full px-[10px]">
+        <ul class="flex justify-between w-full px-2">
             @foreach ($steps as $key => $step)
                 @include('filament-range-field::forms.components._range-slider-step', [
                     'state' => $getStepsAssoc() ? $key : $loop->iteration,
@@ -36,4 +30,4 @@
         </ul>
         @endif
     </div>
-</x-forms::field-wrapper>
+</x-dynamic-component>
