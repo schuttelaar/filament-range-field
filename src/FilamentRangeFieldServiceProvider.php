@@ -28,9 +28,9 @@ class FilamentRangeFieldServiceProvider extends PackageServiceProvider
     public function packageBooted(): void
     {
 
+        // to include the asset you need to run php artisan filament:assets
         FilamentAsset::register([
-                Css::make('filament-range-field', Vite::
-       asset(__DIR__ . '/../resources/css/filament-forms-range-component.css')),
+                Css::make('filament-range-field', __DIR__ . '/../resources/css/filament-forms-range-component.css'),
         ], 'schuttelaar/filament-range-field');
     }
 }
